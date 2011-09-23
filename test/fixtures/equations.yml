@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  param_1: 1.5
+  param_2: 1.5
+  param_3: 1.5
+  param_4: 1.5
+
+two:
+  param_1: 1.5
+  param_2: 1.5
+  param_3: 1.5
+  param_4: 1.5

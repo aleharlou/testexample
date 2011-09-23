@@ -1,0 +1,33 @@
+<%= form_for(@equation) do |f| %>
+  <% if @equation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@equation.errors.count, "error") %> prohibited this equation from being saved:</h2>
+
+      <ul>
+      <% @equation.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :param_1 %><br />
+    <%= f.text_field :param_1 %>
+  </div>
+  <div class="field">
+    <%= f.label :param_2 %><br />
+    <%= f.text_field :param_2 %>
+  </div>
+  <div class="field">
+    <%= f.label :param_3 %><br />
+    <%= f.text_field :param_3 %>
+  </div>
+  <div class="field">
+    <%= f.label :param_4 %><br />
+    <%= f.text_field :param_4 %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

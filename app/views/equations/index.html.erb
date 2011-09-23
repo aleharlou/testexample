@@ -1,0 +1,29 @@
+<h1>Listing equations</h1>
+
+<table>
+  <tr>
+    <th>Param 1</th>
+    <th>Param 2</th>
+    <th>Param 3</th>
+    <th>Param 4</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @equations.each do |equation| %>
+  <tr>
+    <td><%= equation.param_1 %></td>
+    <td><%= equation.param_2 %></td>
+    <td><%= equation.param_3 %></td>
+    <td><%= equation.param_4 %></td>
+    <td><%= link_to 'Show', equation %></td>
+    <td><%= link_to 'Edit', edit_equation_path(equation) %></td>
+    <td><%= link_to 'Destroy', equation, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Equation', new_equation_path %>

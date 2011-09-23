@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Param 1:</b>
+  <%= @equation.param_1 %>
+</p>
+
+<p>
+  <b>Param 2:</b>
+  <%= @equation.param_2 %>
+</p>
+
+<p>
+  <b>Param 3:</b>
+  <%= @equation.param_3 %>
+</p>
+
+<p>
+  <b>Param 4:</b>
+  <%= @equation.param_4 %>
+</p>
+
+
+<%= link_to 'Edit', edit_equation_path(@equation) %> |
+<%= link_to 'Back', equations_path %>
