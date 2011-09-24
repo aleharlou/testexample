@@ -1,4 +1,8 @@
-%p{:style=>'color:red;'}
-  = params[:arg_1]
-%p{:style=>'color:red;'}
-  = params[:arg_2]
+= @equation.inspect
+%br
+- unless @equation.valid?
+  - @equation.errors.each do |field, message|
+    %p
+      = field
+      &mdash;
+      = message

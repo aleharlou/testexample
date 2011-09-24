@@ -11,7 +11,4 @@ function test_function2(){
   hide_all();
   $('#eq2').show();
 }
-function test_function3(){
-  hide_all();
-  $('#eq3').show();
-}
+

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110922220842) do
+ActiveRecord::Schema.define(:version => 20110924191711) do
 
   create_table "equations", :force => true do |t|
     t.float    "param_1"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(:version => 20110922220842) do
     t.float    "param_4"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "equation_type"
   end
 
 end

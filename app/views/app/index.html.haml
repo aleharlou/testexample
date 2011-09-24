@@ -3,29 +3,41 @@
 - content_for :css do
   = stylesheet_link_tag :my_css
 
-= render :partial => 'app/links'
-
 - ajax_url = ajax_test_url
 
 :javascript
   function forming_ajax_request(){
-    //alert( $('#form_1_arg_1').val() );
-    //alert( $('#form_1_arg_2').val() );
-    var arg_1 =  $('#form_1_arg_1').val();
-    var arg_2 = $('#form_1_arg_2').val();
+    // Get params from Form Inputs
+    var arg_1 = $('#equation_1 #equation_param_1').val();
+    var arg_2 = $('#equation_1 #equation_param_2').val();
+    var arg_3 = $('#equation_1 #equation_param_3').val();
+    var type  = $('#equation_1 #equation_equation_type').val();
 
-        jQuery.ajax({
-          type: "POST",
-          url: '#{ajax_url}',
-          data: {arg_1: arg_1, arg_2: arg_2},
-          dataType: "html",
-          success: function(data, status, xhr){ alert('Success') },
-          beforeSend: function(xhr){ alert('Before') },
-          complete: function(xhr, status){ alert('Complite') },
-          error: function(xhr, status, error){ alert('Error') }
-          //error: function(){}
-        });//jQuery.ajax
+    // Forming XML by Jquery
+    var my_xml = $('<xml />');
+    $(my_xml).append( $('<arg />').append(arg_1) );
+    $(my_xml).append( $('<arg />').append(arg_2) );
+    $(my_xml).append( $('<arg />').append(arg_3) );
+    $(my_xml).append( $('<type />').append(type) );
+    my_xml = $("<data />").append(my_xml.clone()).html();
 
+    // Send XML to server
+    jQuery.ajax({
+      type: "POST",
+      url: '#{ajax_url}',
+      data: {xml_data: my_xml},
+      dataType: "html",
+      success: function(data, status, xhr){
+        $('#result').html(data);
+      },
+      beforeSend: function(xhr){},
+      complete: function(xhr, status){},
+      error: function(xhr, status, error){}
+    });//jQuery.ajax
   }
 
+= render :partial => 'app/links'
 = render :partial => 'app/forms'
+
+.result#result{ :style => 'border: 1px solid red; margin-top: 40px;' }
+  Hello World!

@@ -1,16 +1,19 @@
-%p
 .equation#eq1{:style=>'display:none'}
-  Equation 1
-  = form_tag('/posts') do
-    = text_field 'arg1', 'arg1', :size => "20", :placeholder => "argument 1", :id => :form_1_arg_1
-    = text_field 'arg2', 'arg2', :size => "20", :placeholder => "argument 2", :id => :form_1_arg_2
+  A, B, C - ?
+  = form_for @equation, :url => '#', :html => { :id => :equation_1 } do |f|
+    = f.text_field :param_1, :placeholder => "A", :size => "10"
+    = f.text_field :param_2, :placeholder => "B", :size => "10"
+    = f.text_field :param_3, :placeholder => "C", :size => "10"
+    = f.hidden_field :equation_type, :value => 1
     = button_to_function 'Submit', 'forming_ajax_request()'
 
 .equation#eq2{:style=>'display:none'}
-  Equation 2
-  = form_tag('/posts') do
-    = text_field 'arg1', 'arg1', :size => "20", :placeholder => "argument 1"
-    = text_field 'arg2', 'arg2', :size => "20", :placeholder => "argument 2"
-    = text_field 'arg3', 'arg3', :size => "20", :placeholder => "argument 3"
-    = button_tag 'Submit'
+  x1, y1, x2, y2 - ?
+  = form_for @equation, :url => '#', :html => { :id => :equation_2 } do |f|
+    = f.text_field :param_1, :placeholder => "x1", :size => "10"
+    = f.text_field :param_2, :placeholder => "y1", :size => "10"
+    = f.text_field :param_3, :placeholder => "x2", :size => "10"
+    = f.text_field :param_4, :placeholder => "y2", :size => "10"
+    = f.hidden_field :equation_type, :value => 1
+    = button_to_function 'Submit', 'forming_ajax_request()'
 
