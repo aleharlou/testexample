@@ -1,0 +1,16 @@
+%p
+.equation#eq1{:style=>'display:none'}
+  Equation 1
+  = form_tag('/posts') do
+    = text_field 'arg1', 'arg1', :size => "20", :placeholder => "argument 1", :id => :form_1_arg_1
+    = text_field 'arg2', 'arg2', :size => "20", :placeholder => "argument 2", :id => :form_1_arg_2
+    = button_to_function 'Submit', 'forming_ajax_request()'
+
+.equation#eq2{:style=>'display:none'}
+  Equation 2
+  = form_tag('/posts') do
+    = text_field 'arg1', 'arg1', :size => "20", :placeholder => "argument 1"
+    = text_field 'arg2', 'arg2', :size => "20", :placeholder => "argument 2"
+    = text_field 'arg3', 'arg3', :size => "20", :placeholder => "argument 3"
+    = button_tag 'Submit'
+

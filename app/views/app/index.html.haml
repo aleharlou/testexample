@@ -1,56 +1,29 @@
+- content_for :js do
+  = javascript_include_tag :my_js
+- content_for :css do
+  = stylesheet_link_tag :my_css
+
+- ajax_url = ajax_test_url
+
 :javascript
-  function hide_all(){
-    $('.equation').each(function(){
-      $(this).hide();
-    });
-  }
-  function test_function1(){
-    hide_all();
-    $('#eq1').show();
-  }
-  function test_function2(){
-    hide_all();
-    $('#eq2').show();
-  }
-  function test_function3(){
-    hide_all();
-    $('#eq3').show();
+  function forming_ajax_request(){
+    //alert( $('#form_1_arg_1').val() );
+    //alert( $('#form_1_arg_2').val() );
+    var arg_1 =  $('#form_1_arg_1').val();
+    var arg_2 = $('#form_1_arg_2').val();
+
+        jQuery.ajax({
+          type: "POST",
+          url: '#{ajax_url}',
+          data: {arg_1: arg_1, arg_2: arg_2},
+          dataType: "html",
+          success: function(){},
+          //beforeSend: function(){},
+          //complete: function(){},
+          //error: function(){}
+        });//jQuery.ajax
+
   }
 
-:css
-  .form{
-    margin-bottom:30px;
-  }
-  .button{
-    border:1px solid red;
-    padding:10px;
-  }
-
-= link_to 'Show Equation 1', '#', :class=>:button, :onclick => 'test_function1(); return false;'
-= link_to 'Show Equation 2', '#', :class=>:button, :onclick => 'test_function2(); return false;'
-= link_to 'Show Equation 3', '#', :class=>:button, :onclick => 'test_function3(); return false;'
-
-%p
-.equation#eq1{:style=>'display:none'}
-  Equation 1
-  = form_tag('/posts') do
-    = text_field 'arg1', 'arg1', :size => "20", :placeholder => "argument 1"
-    = text_field 'arg2', 'arg2', :size => "20", :placeholder => "argument 2"
-    = button_tag 'Submit'
-
-.equation#eq2{:style=>'display:none'}
-  Equation 2
-  = form_tag('/posts') do
-    = text_field 'arg1', 'arg1', :size => "20", :placeholder => "argument 1"
-    = text_field 'arg2', 'arg2', :size => "20", :placeholder => "argument 2"
-    = text_field 'arg3', 'arg3', :size => "20", :placeholder => "argument 3"
-    = button_tag 'Submit'
-
-.equation#eq3{:style=>'display:none'}
-  Equation 3
-  = form_tag('/posts') do
-    = text_field 'arg1', 'arg1', :size => "20", :placeholder => "argument 1"
-    = text_field 'arg2', 'arg2', :size => "20", :placeholder => "argument 2"
-    = text_field 'arg3', 'arg3', :size => "20", :placeholder => "argument 3"
-    = text_field 'arg4', 'arg4', :size => "20", :placeholder => "argument 4"
-    = button_tag 'Submit'
+= render :partial => 'app/links'
+= render :partial => 'app/forms'
