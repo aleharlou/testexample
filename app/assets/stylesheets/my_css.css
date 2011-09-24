@@ -1,5 +1,6 @@
 .form{
-  margin-bottom:30px;
+ display:none;
+ margin-top:20px;
 }
 .button{
   border:1px solid red;

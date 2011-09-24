@@ -1,5 +1,5 @@
 class Equation < ActiveRecord::Base
-  #validates :equation_type, :presence => true
+  validates :equation_type, :presence => true
 
   validates :param_1, :presence => true
   validates :param_2, :presence => true

@@ -16,7 +16,7 @@ class AppController < ApplicationController
     # Get type
     @equation_params[:equation_type] = @xml.search('xml type').first.content
 
-    # Initailize new equation
+    # Initialize new equation
     @equation = Equation.new(@equation_params)
 
     render :layout => false
