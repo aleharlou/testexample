@@ -1,6 +1,6 @@
 = @equation.inspect
 %br
-- unless @equation.valid?
+- unless @equation.errors.blank?
   - @equation.errors.each do |field, message|
     %p
       = field

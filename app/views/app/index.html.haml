@@ -30,7 +30,7 @@
       data: {xml_data: my_xml},
       dataType: "html",
       success: function(data, status, xhr){
-        $('#result').html(data);
+        $('#result').append(data);
       },
       beforeSend: function(xhr){},
       complete: function(xhr, status){},
@@ -42,4 +42,4 @@
 = render :partial => 'app/forms'
 
 .result#result{ :style => 'border: 1px solid red; margin-top: 40px;' }
-  Result
+  Result:

@@ -19,6 +19,12 @@ class AppController < ApplicationController
     # Initialize new equation
     @equation = Equation.new(@equation_params)
 
+    # Validation
+    unless @equation.valid?
+
+
+    end
+
     render :layout => false
   end
 
