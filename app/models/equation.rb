@@ -5,7 +5,7 @@ class Equation < ActiveRecord::Base
   validates :param_3, :presence => true
   validates :param_4, :presence => true, :if => Proc.new{ |eq| eq.equation_type == 2 }
 
-  def calculate
+  def calculate_eq
      if equation_type == 1
       a, b, c = param_1, param_2, param_3
       dk = b**2 - 4 * a * c
@@ -28,7 +28,7 @@ class Equation < ActiveRecord::Base
       a = y1 - y2
       b = x2 - x1
       c = x1 * y2 - x2 * y1
-      if a == b == 0
+      if a == 0 and b == 0
         re = "Uravnenie ne imeet smisla"
       else
         re = "#{a}x + #{b}y + #{c} = 0"
