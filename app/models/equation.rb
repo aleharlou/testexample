@@ -13,11 +13,13 @@ class Equation < ActiveRecord::Base
         d = Math.sqrt(dk)
         x1 = (-b + d) / (2 * a)
         x2 = (-b - d) / (2 * a)
+        re = "x1 = #{x1}, x2 = #{x2}"
       elsif dk == 0
         d = Math.sqrt(dk)
         x = (-b + d) / (2 * a)
+        re = "x = #{x}"
       else
-        puts "Korney net"
+        re = "Korney net"
       end
     end
 
@@ -27,9 +29,9 @@ class Equation < ActiveRecord::Base
       b = x2 - x1
       c = x1 * y2 - x2 * y1
       if a == b == 0
-        puts "Uravnenie ne imeet smisla"
+        re = "Uravnenie ne imeet smisla"
       else
-        puts "#{a}x + #{b}y + #{c} = 0"
+        re = "#{a}x + #{b}y + #{c} = 0"
       end
     end
   end
