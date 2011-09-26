@@ -5,7 +5,7 @@ class Equation < ActiveRecord::Base
   validates :param_3, :presence => true
   validates :param_4, :presence => true, :if => Proc.new{ |eq| eq.equation_type == 2 }
 
-  def calculate_eq
+  def calculate
      if equation_type == 1
       a, b, c = param_1, param_2, param_3
       dk = b**2 - 4 * a * c
