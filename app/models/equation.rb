@@ -19,7 +19,7 @@ class Equation < ActiveRecord::Base
         x = (-b + d) / (2 * a)
         re = "x = #{x}"
       else
-        re = "Korney net"
+        re = "dk = #{dk}, Korney net"
       end
     end
 
@@ -34,6 +34,8 @@ class Equation < ActiveRecord::Base
         re = "#{a}x + #{b}y + #{c} = 0"
       end
     end
+
+    return re
   end
 
 end

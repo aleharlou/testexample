@@ -5,7 +5,7 @@
     = f.text_field :param_2, :placeholder => "B", :size => "9"
     = f.text_field :param_3, :placeholder => "C", :size => "9"
     = f.hidden_field :equation_type, :value => 1
-    = button_to_function 'Send', 'forming_ajax_request()'
+    = button_to_function 'Send', 'forming_ajax_request_1()'
 
 .equation#eq2{:class=>:form}
   x1, y1, x2, y2 - ?
@@ -15,6 +15,6 @@
     = f.text_field :param_3, :placeholder => "x2", :size => "6"
     = f.text_field :param_4, :placeholder => "y2", :size => "6"
     = f.hidden_field :equation_type, :value => 2
-    = button_to_function 'Send', 'forming_ajax_request()'
+    = button_to_function 'Send', 'forming_ajax_request_2()'
 
 

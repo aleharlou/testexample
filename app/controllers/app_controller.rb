@@ -16,14 +16,13 @@ class AppController < ApplicationController
     # Get type
     @equation_params[:equation_type] = @xml.search('xml type').first.content
 
-    # Initialize new equation
+
     @equation = Equation.new(@equation_params)
     @my_result = nil
     if @equation.valid?
       @my_result = @equation.calculate
-    else
-      @my_result = "0"
     end
+
     render :layout => false
   end
 
